@@ -38,7 +38,7 @@
 	(cproof (list 14 (buff 32)))
 	) 
 	(let (
-		(tx-data (try! (contract-call? .bitcoin-helper was-segwit-tx-mined
+		(tx-data (try! (contract-call? .bitcoin-helper get-verified-tx-data
 			burn-height
 			tx
 			header
@@ -61,6 +61,6 @@
 		)
 		(asserts! (not (is-eq 0x witness-script)) err-no-witness-script-in-stack)
 		;; TODO: print event
-		(contract-call? .transaction-storage assert-new-reveal commit-txid input-index (unwrap-panic (get txid tx-data)) witness-script)
+		(contract-call? .transaction-storage insert-new-reveal commit-txid input-index (unwrap-panic (get txid tx-data)) witness-script)
 	)
 )

@@ -11,7 +11,7 @@
 
 (define-constant burnchain-confirmations-required u2)
 
-(define-public (was-segwit-tx-mined
+(define-public (get-verified-tx-data
 	(burn-height uint) ;; bitcoin block height
 	(tx (buff 4096)) ;; tx to check
 	(header (buff 80)) ;; bitcoin block header

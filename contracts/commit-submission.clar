@@ -15,7 +15,7 @@
 	(cproof (list 14 (buff 32)))
 	) 
 	(let (
-		(tx-data (try! (contract-call? .bitcoin-helper was-segwit-tx-mined
+		(tx-data (try! (contract-call? .bitcoin-helper get-verified-tx-data
 			burn-height
 			tx
 			header
@@ -31,6 +31,6 @@
 		;; TODO: verify taproot witness script. If we verify it here then we can store it early.
 		;; (try! (contract-call? .witness-helper verify-script-witness-program (get scriptPubKey selected-output) (list output-unlock-witness-script)))
 		;; TODO: print event
-		(contract-call? .transaction-storage assert-new-commit (unwrap-panic (get txid tx-data)) output-index selected-output)
+		(contract-call? .transaction-storage insert-new-commit (unwrap-panic (get txid tx-data)) output-index selected-output)
 	)
 )

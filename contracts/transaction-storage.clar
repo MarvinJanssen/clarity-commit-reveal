@@ -20,7 +20,7 @@
 )
 
 ;; #[allow(unchecked_data)]
-(define-public (assert-new-commit (commit-txid (buff 32)) (output-index uint) (output {value: uint, scriptPubKey: (buff 128)}))
+(define-public (insert-new-commit (commit-txid (buff 32)) (output-index uint) (output {value: uint, scriptPubKey: (buff 128)}))
 	(begin
 		(try! (is-allowed-protocol-caller))
 		(asserts! (is-eq (len commit-txid) txid-length) err-invalid-txid-length)
@@ -29,7 +29,7 @@
 )
 
 ;; #[allow(unchecked_data)]
-(define-public (assert-new-reveal (commit-txid (buff 32)) (input-index uint) (reveal-txid (buff 32)) (witness-script (buff 128)))
+(define-public (insert-new-reveal (commit-txid (buff 32)) (input-index uint) (reveal-txid (buff 32)) (witness-script (buff 128)))
 	(begin
 		(try! (is-allowed-protocol-caller))
 		(asserts! (is-eq (len commit-txid) txid-length) err-invalid-txid-length)
