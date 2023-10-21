@@ -8,39 +8,74 @@ requirements = []
 [contracts.bitcoin-helper]
 path = 'contracts/bitcoin-helper.clar'
 clarity_version = 2
-epoch = 2.1
+epoch = 2.4
 
 [contracts.clarity-bitcoin-helper]
 path = 'contracts/external/clarity-bitcoin-helper.clar'
 clarity_version = 2
-epoch = 2.1
+epoch = 2.4
 
 [contracts.clarity-bitcoin-v5]
 path = 'contracts/external/clarity-bitcoin-v5.clar'
 clarity_version = 2
-epoch = 2.1
+epoch = 2.4
 
 [contracts.commit-submission]
 path = 'contracts/commit-submission.clar'
 clarity_version = 2
-epoch = 2.1
-
-[contracts.reveal-submission]
-path = 'contracts/reveal-submission.clar'
-clarity_version = 2
-epoch = 2.1
+epoch = 2.4
 
 [contracts.transaction-storage]
 path = 'contracts/transaction-storage.clar'
 clarity_version = 2
-epoch = 2.1
+epoch = 2.4
 
 [contracts.witness-helper]
 path = 'contracts/witness-helper.clar'
 clarity_version = 2
-epoch = 2.1
+epoch = 2.4
 [repl.analysis]
 passes = ['check_checker']
+
+[contracts.multiple-steps_test]
+path = 'contracts/tests/multiple-steps_test.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.point]
+path = 'contracts/math/point.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.point_test]
+path = 'contracts/tests/point_test.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.tapscript]
+path = 'contracts/external/tapscript.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.tapscript_test]
+path = 'contracts/tests/tapscript_test.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.uint256-lib]
+path = 'contracts/math/uint256-lib.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.uint512-lib]
+path = 'contracts/math/uint512-lib.clar'
+clarity_version = 2
+epoch = 2.4
+
+[contracts.uint768-lib]
+path = 'contracts/math/uint768-lib.clar'
+clarity_version = 2
+epoch = 2.4
 
 [repl.analysis.check_checker]
 strict = false
