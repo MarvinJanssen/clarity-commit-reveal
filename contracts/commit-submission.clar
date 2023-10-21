@@ -1,5 +1,10 @@
 (define-constant err-invalid-output-index (err u100))
 (define-constant err-invalid-scriptpubkey (err u101))
+(define-constant err-invalid-script (err u102))
+
+(define-read-only (script-is-standard (script (buff 128)))
+  true
+)
 
 (define-public (submit-commit
 	(burn-height uint)
@@ -25,7 +30,8 @@
 		(selected-output (unwrap! (element-at? (get outs tx-data) output-index) err-invalid-output-index))
     (scriptPubKey (contract-call? .tapscript get-tapscript-scriptpubkey compressed-pubkey version script))
 		)
-    ;; (asserts! (is-eq scriptPubKey (get scriptPubKey selected-output)) err-invalid-scriptpubkey)
+    (asserts! (script-is-standard script) err-invalid-script)
+    (asserts! (is-eq scriptPubKey (get scriptPubKey selected-output)) err-invalid-scriptpubkey)
 		;; TODO: print event
 		(contract-call? .transaction-storage insert-new-commit (get txid tx-data) output-index selected-output)
 	)
